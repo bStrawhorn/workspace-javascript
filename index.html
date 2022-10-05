@@ -23,22 +23,37 @@
             <p>
                 Please display a hello world message in JavaScript. 
                 <script>
-                    document.title = "JavaScript Basic -- In class practice -- Yilian Zhang";
+                    document.title = "JavaScript Basic -- In class practice -- Blake Strawhorn";
                     // use document.write to display a message
-                    
+                    document.writeln("<h2> Hello there,first javascript</h2>")
                     // use console.log to display a message   
-                    
+                    console.log("This is in the console")
                     
                 </script>
             </p>
             <p> Please import external file hello.js here. 
-                
+                <script src="js\hello.js"></script>
             </p>
         </div>
 
         <div class="practice">
             <h1> Variable and Arithemetic Operation</h1>
             <p> Practice on variables </p>
+            <script>
+                var num1=3;
+                var num2=5;
+                var num4="123";
+                var result= num1*num2;
+                var result2= num1+num2;
+                var result3= num1-num2;
+                var result4= num1/num2;
+                document.writeln("result 1 is "+ result)
+                document.writeln("result 2 is "+ result2)
+                document.writeln("result 3 is "+ result3)
+                document.writeln("result 4 is "+ result4)
+
+
+            </script>
 
 
         </div>
@@ -46,8 +61,31 @@
         <div class="practice">
             <h1> JavaScript Escape Sequence</h1>
             <p> Write an image to the page </p>
+            
+            <script>
+                //document.write("<img src=\"img/die1.png\" alt=\"dies\">");
+                //document.write("<img src=\"img/die2.png\" alt=\"dies\">");
+                //document.write("<img src=\"img/die3.png\" alt=\"dies\">");
+                //document.write("<img src=\"img/die4.png\" alt=\"dies\">");
+                //document.write("<img src=\"img/die5.png\" alt=\"dies\">");
+                //document.write("<img src=\"img/die6.png\" alt=\"dies\">");
+                imglist="";
+                for(var i=1; i<7; i++){
+                    imglist=imglist+"<img src=\"img/die"+i+".png\">"
+
+                }
+                document.write(imglist);
+            </script>
 
             <p> Write a table to the page </p>
+                <script>
+                    var tablecode="<table>";
+                        for(var i=1; i<10; i++){
+                            tablecode= tablecode+"<tr><td>"+i+"</td></tr>";
+                        }
+                        tablecode=tablecode+"</table>";
+                        document.write(tablecode);
+                </script>
 
         </div>
 
