@@ -140,7 +140,13 @@
             <script>
                 function calculate() {
                     var n1=parseInt(document.getElementsByName('num1')[0].value);
+                    if(Number.isNaN(Number.parseFloat(n1))){
+                        window.alert("Try again,enter a number");
+                    }
                     var n2=parseInt(document.getElementsByName('num2')[0].value);
+                    if(Number.isNaN(Number.parseFloat(n2))){
+                        window.alert("Try again,enter a number");
+                    }
                     //debugging
                     console.log("n1="+n1);
                     //output
@@ -216,9 +222,19 @@
             </textarea>
 
             <input type="button" id="tryit" value="Click and Display"> 
-
-            <div id="message"> 
+            <div id="message1"> 
             </div>
+            <script>
+                //eventhandler
+                function toHtml(){
+                    var codes=document.getElementById('code').value;
+                    document.getElementById('message1').innerHTML=codes;
+                    
+                }
+
+                var bE= document.getElementById('tryit');
+                bE.addEventListener('click',toHtml,false);
+            </script>
 
 
         </div>
