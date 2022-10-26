@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
 
-    <link rel="stylesheet" type="text/css" href="css/main.css">
+    <link rel="stylesheet" type="text/css" href="css/main-old.css">
     <!-- Jquery library   ---->
     <script src="https://code.jquery.com/jquery-3.5.1.js"
         integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
@@ -334,19 +334,19 @@
                     }
                     let base = 10;
                     premium = base + agefactor * coverage / 1000
-                   if (index==0) {
-                    this.animate([{transform:'scale(0.2)'},{transform:'scale(1.5)'}], {duration:2000,fill:"forwards"});
-                   } else {
-                    this.animate([{transform:'translate(0,0)'},{transform:'translate(100px,0)'}], {duration:2000,fill:"forwards"});
-                   } 
+                    if (index == 0) {
+                        this.animate([{ transform: 'scale(0.2)' }, { transform: 'scale(1.5)' }], { duration: 2000, fill: "forwards" });
+                    } else {
+                        this.animate([{ transform: 'translate(0,0)' }, { transform: 'translate(100px,0)' }], { duration: 2000, fill: "forwards" });
+                    }
                     document.getElementById('result5').textContent = premium
-                    
+
                 }
 
                 var bE = document.querySelector('input[value="Check Premium"]');
                 bE.addEventListener('click', getPremium, false);
 
-                
+
 
 
             </script>
@@ -363,18 +363,18 @@
                 <input type="button" id="dosquare" value="Click for Square">
             </p>
             <script>
-                function dosum(){
+                function dosum() {
 
-                
-                var sum=0;
-                var N=document.getElementById('inputnumber1').value
-                for(var i=1;i<N+1;i++){
-                    sum=N*N;
-                    console.log(sum)
 
+                    var sum = 0;
+                    var N = document.getElementById('inputnumber1').value
+                    for (var i = 1; i < N + 1; i++) {
+                        sum = N * N;
+                        console.log(sum)
+
+                    }
                 }
-            }
-            document.querySelector("#dosquare").addEventListener("click",dosum,false);
+                document.querySelector("#dosquare").addEventListener("click", dosum, false);
             </script>
 
         </div>
@@ -391,27 +391,27 @@
             <!-- output section -->
             <div id="output">
                 <script>
-                function showMult(){
-                    var outputlist="<table>";
-                        var N= document.getElementById('inputnumber2').value;
-                        for(var i=1;i<N;i++){
-                            outputlist +="<tr>";
-                            for(var j=1;j<=i;j++){
-                                outputlist+="<td>";
-                                    var answer=i*j;
-                                    outputlist+=answer
+                    function showMult() {
+                        var outputlist = "<table>";
+                        var N = document.getElementById('inputnumber2').value;
+                        for (var i = 1; i < N; i++) {
+                            outputlist += "<tr>";
+                            for (var j = 1; j <= i; j++) {
+                                outputlist += "<td>";
+                                var answer = i * j;
+                                outputlist += answer
 
                                 outputlist += "</td>";
 
                             }
-                            outputlist +="</tr>";
+                            outputlist += "</tr>";
                         }
-                        outputlist +="</table>";
-                        document.getElementById('output').innerHTML=outputlist;
-                }
+                        outputlist += "</table>";
+                        document.getElementById('output').innerHTML = outputlist;
+                    }
 
-                document.getElementById('showtable').addEventListener('click',showMult,false);
-            </script>
+                    document.getElementById('showtable').addEventListener('click', showMult, false);
+                </script>
             </div>
 
         </div>
@@ -460,11 +460,20 @@
                 </tr>
             </table>
             <script>
-                function changeimage(){
-                    var num=Math.floor(Math.random()*6+1);
-                    document.getElementById('dice').setAttribute('src',"img/die"+num+".png");
+                var stats = [0, 0, 0, 0, 0, 0];
+                function changeimage() {
+                    var num = Math.floor(Math.random() * 6 + 1);
+                    stats[num - 1]++;
+                    //console.log(stats);
+                    document.getElementById('dice').setAttribute('src', "img/die" + num + ".png");
+                    for(var i in stats){
+                       console.log(stats[i]);
+                     }
+                    for (var i in stats) {
+                        document.getElementById("r" + num).textContent = stats[i].toString();
+                    }
                 }
-                document.getElementById('roll').addEventListener('click',changeimage,false);
+                document.getElementById('roll').addEventListener('click', changeimage, false);
             </script>
 
         </div>
@@ -488,6 +497,16 @@
                 <img src="img/usca5.jpg" alt="usca">
             </div>
             <script>
+                //setInterval(changepic,5000);
+                var index=0;
+                var imglist=document.querySelectorAll(".img-container-hide");
+                //imglist[0].setAttribute('class',"img-container");
+                function changepic() {
+                    imglist[index].setAttribute('class',"img-container-hide");
+                    index++;
+                    index=index %imglist.length;
+                    imglist[index].setAttribute('class',"img-container");
+                }
 
             </script>
 
@@ -541,9 +560,10 @@
 
 
     </div>
+    <!----
     <script src="script.js"> </script>
     <script src="js/practice.js"></script>
-
+-->
 
 </body>
 
